@@ -23,6 +23,17 @@ class HomeViewController: UIViewController {
         specialsCollectionView.delegate = self
         registerCells()
         
+        NetworkService.shared.myFirstRequest { result in
+            switch result {
+            case .success(let data):
+                for dish in data {
+                    print(dish.name ?? "")
+                }
+            case .failure(let error):
+                print("The error is: \(error.localizedDescription)")
+            }
+        }
+        
         categories = [
             DishCategory(id: "id1", name: "Africa Dish", image: "https://picsum.photos/100/200"),
             DishCategory(id: "id1", name: "Africa Dish 2", image: "https://picsum.photos/100/200"),
@@ -85,7 +96,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == categoryCollectionView {
-            
+            let controller = ListDishesViewController.instantiate()
+            navigationController?.pushViewController(controller, animated: true)
+            controller.category = categories[indexPath.row]
         } else {
             let controller = DishDetailViewController.instantiate()
             controller.dish = collectionView == popularCollectionView ? populars[indexPath.row] : specials[indexPath.row] // Different syntax!!!
