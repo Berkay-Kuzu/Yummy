@@ -13,7 +13,7 @@ enum Route {
     var description: String {
         switch self {
         case .temp:
-            return "/temp"
+            return "/dishes/cat1"
         }
     }
 }
