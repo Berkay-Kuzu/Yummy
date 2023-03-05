@@ -435,6 +435,7 @@
                         <outlet property="dishImageView" destination="kns-1d-Ko2" id="ebK-IA-rSL"/>
                         <outlet property="nameField" destination="zOy-B2-wQO" id="etC-cT-kiE"/>
                         <outlet property="titleLabel" destination="EHl-fC-JpA" id="dES-Um-qQ7"/>
+                        <segue destination="mCh-5x-QOs" kind="presentation" identifier="toNavigationVC" modalPresentationStyle="fullScreen" id="oLa-4N-lvm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Aj-EO-xrB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -530,6 +531,9 @@
             <point key="canvasLocation" x="2888.8000000000002" y="722.66009852216757"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="oLa-4N-lvm"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="cart.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
