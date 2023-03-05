@@ -219,15 +219,13 @@
 		4943FDEF2945A65000F51E97 /* Yummie */ = {
 			isa = PBXGroup;
 			children = (
-				49A4C5F729B48D1E006742E2 /* New Group */,
+				49A4C5F729B48D1E006742E2 /* Delegates */,
 				49A4C5F629B48C0B006742E2 /* Supporting Files */,
 				496903C329B2634A008BBBE2 /* Networking */,
 				490C0BD62945E660006DD171 /* Extensions */,
 				490C0BD02945DEA3006DD171 /* CustomViews */,
 				490C0BCF2945DE98006DD171 /* Views */,
 				490C0BCE2945DE8F006DD171 /* Models */,
-				4943FDF02945A65000F51E97 /* AppDelegate.swift */,
-				4943FDF22945A65000F51E97 /* SceneDelegate.swift */,
 				4943FDF62945A65000F51E97 /* Main.storyboard */,
 			);
 			path = Yummie;
@@ -299,11 +297,13 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		49A4C5F729B48D1E006742E2 /* New Group */ = {
+		49A4C5F729B48D1E006742E2 /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
+				4943FDF02945A65000F51E97 /* AppDelegate.swift */,
+				4943FDF22945A65000F51E97 /* SceneDelegate.swift */,
 			);
-			path = "New Group";
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 		49CADC552949F76E008CFB8A /* DishLandscapeCollectionViewCell */ = {
