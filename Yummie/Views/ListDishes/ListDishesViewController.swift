@@ -13,6 +13,7 @@ class ListDishesViewController: UIViewController {
     var category: DishCategory!
     var dishes: [Dish] = []
     
+    
     @IBOutlet weak var listDishesTableView: UITableView!
     
     override func viewDidLoad() {

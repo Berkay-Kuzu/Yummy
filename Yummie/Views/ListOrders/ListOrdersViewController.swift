@@ -6,28 +6,38 @@
 //
 
 import UIKit
+import ProgressHUD
 
 class ListOrdersViewController: UIViewController {
 
     @IBOutlet weak var listOrdersTableView: UITableView!
     
-    //var orders: [Order] = [] // 1st way of creating an empty array
-    var orders = [Order]() // 2nd way of creating an empty array
+    var orders: [Order] = [] // 1st way of creating an empty array
+    //var orders = [Order]() // 2nd way of creating an empty array
+    var order: Order!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        registerCell()
         title = "Orders"
+        registerCell()
         
-        orders = [
-        Order(id: "id", name: "Berkay Kuzu", dish: Dish(id: "id1", name: "Steak and French Fries", description: "The most delicious French food", image: "https://picsum.photos/100/200", calories: 440)),
-        Order(id: "id", name: "İrem Elhan", dish: Dish(id: "id1", name: "Steak and French Fries", description: "The most delicious French food", image: "https://picsum.photos/100/200", calories: 440)),
-        Order(id: "id", name: "Michael Scofield", dish: Dish(id: "id1", name: "Steak and French Fries", description: "The most delicious French food", image: "https://picsum.photos/100/200", calories: 440)),
-        Order(id: "id", name: "Lincoln Burrows", dish: Dish(id: "id1", name: "Steak and French Fries", description: "The most delicious French food", image: "https://picsum.photos/100/200", calories: 440))
-        ]
-        
+        ProgressHUD.show()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        NetworkService.shared.fetchOrders() { [weak self] (result) in
+            switch result {
+            case .success(let orders):
+                ProgressHUD.dismiss()
+                
+                self?.orders = orders
+                self?.listOrdersTableView.reloadData()
+            case .failure(let error):
+                ProgressHUD.showError(error.localizedDescription)
+            }
+        }
     }
     
     private func registerCell () {
