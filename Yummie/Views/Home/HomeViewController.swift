@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ProgressHUD
 
 class HomeViewController: UIViewController {
 
@@ -23,36 +24,23 @@ class HomeViewController: UIViewController {
         specialsCollectionView.delegate = self
         registerCells()
         
-        NetworkService.shared.myFirstRequest { result in
+        ProgressHUD.show()
+        NetworkService.shared.fetchAllCategories {  [weak self] result in
             switch result {
-            case .success(let data):
-                for dish in data {
-                    print(dish.name ?? "")
-                }
+            case .success(let allDishes):
+                ProgressHUD.dismiss()
+                self?.categories = allDishes.categories ?? []
+                self?.populars = allDishes.populars ?? []
+                self?.specials = allDishes.specials ?? []
+                
+                self?.categoryCollectionView.reloadData()
+                self?.popularCollectionView.reloadData()
+                self?.specialsCollectionView.reloadData()
+                
             case .failure(let error):
-                print("The error is: \(error.localizedDescription)")
+                ProgressHUD.showError(error.localizedDescription)
             }
         }
-        
-        categories = [
-            DishCategory(id: "id1", name: "Africa Dish", image: "https://picsum.photos/100/200"),
-            DishCategory(id: "id1", name: "Africa Dish 2", image: "https://picsum.photos/100/200"),
-            DishCategory(id: "id1", name: "Africa Dish 3", image: "https://picsum.photos/100/200"),
-            DishCategory(id: "id1", name: "Africa Dish 4", image: "https://picsum.photos/100/200"),
-            DishCategory(id: "id1", name: "Africa Dish 5", image: "https://picsum.photos/100/200")
-        ]
-        
-        populars = [
-            Dish(id: "id1", name: "Garri", description: "This is the best I have ever tasted", image: "https://picsum.photos/100/200", calories: 34),
-            Dish(id: "id1", name: "Indomie", description: "This is the best I have ever tasted", image: "https://picsum.photos/100/200", calories: 314),
-            Dish(id: "id1", name: "Pizza", description: "This is the best I have ever tasted", image: "https://picsum.photos/100/200", calories: 1004)
-        ]
-        
-        specials = [
-            Dish(id: "id1", name: "Fried Plantain", description: "This is my favorite dish", image: "https://picsum.photos/100/200", calories: 314),
-            Dish(id: "id1", name: "Beans and Garri", description: "This is the best I have ever tasted", image: "https://picsum.photos/100/200", calories: 1004),
-            Dish(id: "id1", name: "Boeuf Bourguignon", description: "This is the specials known all over the world", image: "https://picsum.photos/100/200", calories: 502)
-        ]
     }
     
     private func registerCells() {

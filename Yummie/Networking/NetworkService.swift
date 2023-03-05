@@ -13,12 +13,12 @@ struct NetworkService {
     
     private init() {}
     
-    func myFirstRequest(completion: @escaping(Result<[Dish], Error>) -> Void) {
-        request(route: .temp, method: .get, completion: completion)
+    func fetchAllCategories (completion: @escaping (Result<AllDishes, Error>) -> Void) {
+        request(route: .fetchAllCategories, method: .get, completion: completion)
     }
     
     private func request<T: Codable>(route: Route,
-                                     method:Method,
+                                     method: Method,
                                      parameters: [String: Any]? = nil,
                                      completion: @escaping(Result<T,Error>) -> Void) {
         guard let request = createRequest(route: route, method: method, parameters: parameters) else {
@@ -36,7 +36,6 @@ struct NetworkService {
                 result = .failure(error)
                 print("The error is \(error.localizedDescription)")
             }
-            
             DispatchQueue.main.async {
                 self.handleResponse(result: result, completion: completion)
             }
