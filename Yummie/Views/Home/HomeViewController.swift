@@ -24,6 +24,10 @@ class HomeViewController: UIViewController {
         specialsCollectionView.delegate = self
         registerCells()
         
+        fetchAllCategories()
+    }
+    
+    private func fetchAllCategories() {
         ProgressHUD.show("We are preparing the most delicious foods for you...")
         NetworkService.shared.fetchAllCategories {  [weak self] result in
             switch result {
