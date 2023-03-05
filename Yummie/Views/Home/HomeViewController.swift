@@ -24,7 +24,7 @@ class HomeViewController: UIViewController {
         specialsCollectionView.delegate = self
         registerCells()
         
-        ProgressHUD.show()
+        ProgressHUD.show("We are preparing the most delicious foods for you...")
         NetworkService.shared.fetchAllCategories {  [weak self] result in
             switch result {
             case .success(let allDishes):
