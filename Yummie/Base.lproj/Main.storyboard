@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mCh-5x-QOs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -435,7 +435,6 @@
                         <outlet property="dishImageView" destination="kns-1d-Ko2" id="ebK-IA-rSL"/>
                         <outlet property="nameField" destination="zOy-B2-wQO" id="etC-cT-kiE"/>
                         <outlet property="titleLabel" destination="EHl-fC-JpA" id="dES-Um-qQ7"/>
-                        <segue destination="mCh-5x-QOs" kind="presentation" identifier="toNavigationVC" modalPresentationStyle="fullScreen" id="oLa-4N-lvm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Aj-EO-xrB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -495,7 +494,7 @@
             </objects>
             <point key="canvasLocation" x="1897" y="-2"/>
         </scene>
-        <!--List Orders View Controller-->
+        <!-- -->
         <scene sceneID="BLF-Ks-oEX">
             <objects>
                 <viewController storyboardIdentifier="ListOrdersViewController" id="Z3e-Dq-1QP" customClass="ListOrdersViewController" customModule="Yummie" customModuleProvider="target" sceneMemberID="viewController">
@@ -521,7 +520,7 @@
                             <constraint firstAttribute="bottom" secondItem="Xbw-kp-GRv" secondAttribute="bottom" id="nrU-nI-olB"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="CVw-5T-LP1"/>
+                    <navigationItem key="navigationItem" title=" " largeTitleDisplayMode="never" id="CVw-5T-LP1"/>
                     <connections>
                         <outlet property="listOrdersTableView" destination="Xbw-kp-GRv" id="3Vx-UJ-hgl"/>
                     </connections>
@@ -531,9 +530,7 @@
             <point key="canvasLocation" x="2888.8000000000002" y="722.66009852216757"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="oLa-4N-lvm"/>
-    </inferredMetricsTieBreakers>
+    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="cart.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">

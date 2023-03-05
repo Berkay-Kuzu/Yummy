@@ -45,7 +45,6 @@ class DishDetailViewController: UIViewController {
             switch result {
             case .success(_):
                     ProgressHUD.showSuccess("Your order has been received👨‍🍳")
-                self.performSegue(withIdentifier: "toNavigationVC", sender: nil)
             case .failure(let error):
                 ProgressHUD.showError(error.localizedDescription)
             }
