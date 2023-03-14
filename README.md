@@ -15,13 +15,15 @@ Collection View Cell
 
 The data comes from real back-end. I created a generic function to make different types of API Requests. It makes a request to the back-end (endpoints) and fetch data.
 
-# 3RD Party Libraries
+# 3rd Party Libraries
 
 IQKeyboardManager
 
 KingFisher
 
 ProgressHUD
+
+# Video and Images
 
 https://user-images.githubusercontent.com/92036779/224938043-18127f4e-7c77-4f09-b8cb-3ffbee4dbae9.mp4
 
