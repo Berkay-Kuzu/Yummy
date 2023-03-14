@@ -1,5 +1,5 @@
 # Yummie
-Yummie is a food ordering application.
+Yummie is a food ordering application created with UIKit and storyboard.
 
 UITableView
 
